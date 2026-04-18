@@ -54,8 +54,8 @@
 #define MYTTY_DRIVER_DESC	"mytty0tty null modem driver"
 #endif
 
-#define DRIVER_VERSION		"v1.5-minimal-diff"
-#define DRIVER_AUTHOR		"Luis Claudio Gamboa Lopes / modified"
+#define DRIVER_VERSION		"v1.2-novarobot"
+#define DRIVER_AUTHOR		"Novarobot, based on the version by Luis Claudio Gamboa Lopes"
 #define DRIVER_DESC		MYTTY_DRIVER_DESC
 
 MODULE_AUTHOR(DRIVER_AUTHOR);
