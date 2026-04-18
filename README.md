@@ -1,6 +1,3 @@
-# tty0tt
-My tty0tty (https://github.com/freemed/tty0tty) fork and minimal modify!
-
 # mytty0tty
 
 ## English
@@ -119,6 +116,28 @@ Check that it is loaded:
 lsmod | grep mytty0tty
 ls -l /dev/mytnt*
 find /sys/kernel/mytty0tty -maxdepth 1 -type f | sort
+```
+
+## Installation
+
+Install the module into the system module tree:
+
+```bash
+sudo make install
+```
+
+Enable automatic loading at boot by editing `/etc/modules` or by creating a modules-load configuration file:
+
+```bash
+echo mytty0tty | sudo tee /etc/modules-load.d/mytty0tty.conf
+```
+
+Alternatively, you can add the module name manually to `/etc/modules`.
+
+Load the installed module manually:
+
+```bash
+sudo modprobe mytty0tty
 ```
 
 ## Usage
@@ -315,6 +334,28 @@ ls -l /dev/mytnt*
 find /sys/kernel/mytty0tty -maxdepth 1 -type f | sort
 ```
 
+## Telepítés
+
+A modul telepítése a rendszer modul könyvtárába:
+
+```bash
+sudo make install
+```
+
+Automatikus betöltés engedélyezése rendszerindításkor az `/etc/modules` szerkesztésével vagy egy modules-load konfigurációs fájl létrehozásával:
+
+```bash
+echo mytty0tty | sudo tee /etc/modules-load.d/mytty0tty.conf
+```
+
+Alternatív megoldásként a modul neve kézzel is beírható az `/etc/modules` fájlba.
+
+A telepített modul kézi betöltése:
+
+```bash
+sudo modprobe mytty0tty
+```
+
 ## Használat
 
 ### Adatkapcsolat teszt
@@ -388,4 +429,3 @@ A projekt célja az eredeti `tty0tty` hasznos működésének megtartása úgy, 
 * a külön modulnevet
 * a külön eszközprefixet
 * a `CD/DCD` és `RI` vonalak külső, shellből vezérelhető kezelését
-
