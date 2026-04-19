@@ -134,6 +134,9 @@ echo mytty0tty | sudo tee /etc/modules-load.d/mytty0tty.conf
 
 Alternatively, you can add the module name manually to `/etc/modules`.
 
+```bash
+echo 'mytty0tty' /etc/modules
+```
 Load the installed module manually:
 
 ```bash
@@ -349,6 +352,10 @@ echo mytty0tty | sudo tee /etc/modules-load.d/mytty0tty.conf
 ```
 
 Alternatív megoldásként a modul neve kézzel is beírható az `/etc/modules` fájlba.
+
+```bash
+echo 'mytty0tty' /etc/modules
+```
 
 A telepített modul kézi betöltése:
 
