@@ -203,11 +203,31 @@ Disable everything:
 printf '0\n' | sudo tee /sys/kernel/mytty0tty/mytnt0_mytnt1_mask
 ```
 
-## Unload the module
+## Unload / remove the module
+
+If the module was loaded manually or with `modprobe`, unload it from the running kernel with:
+
+```bash
+sudo modprobe -r mytty0tty
+```
+
+Alternative:
 
 ```bash
 sudo rmmod mytty0tty
 ```
+
+If the module was also installed into the system module tree, remove the installed files too:
+
+```bash
+sudo modprobe -r mytty0tty
+sudo rm -f /lib/modules/$(uname -r)/extra/mytty0tty.ko
+sudo rm -f /etc/modules-load.d/mytty0tty.conf
+sudo depmod -a
+```
+
+If you added the module name manually to `/etc/modules`, remove that line from `/etc/modules` as well.
+
 
 ## Notes
 
@@ -425,9 +445,28 @@ printf '0\n' | sudo tee /sys/kernel/mytty0tty/mytnt0_mytnt1_mask
 
 ## Modul eltávolítása
 
+Ha a modult kézzel vagy `modprobe`-bal töltötted be, így távolítsd el a futó kernelből:
+
+```bash
+sudo modprobe -r mytty0tty
+```
+
+Alternatív megoldás:
+
 ```bash
 sudo rmmod mytty0tty
 ```
+
+Ha a modul telepítve is lett a rendszer modul könyvtárába, akkor a telepített fájlokat is törölni kell:
+
+```bash
+sudo modprobe -r mytty0tty
+sudo rm -f /lib/modules/$(uname -r)/extra/mytty0tty.ko
+sudo rm -f /etc/modules-load.d/mytty0tty.conf
+sudo depmod -a
+```
+
+Ha a modul neve kézzel lett hozzáadva az `/etc/modules` fájlhoz, akkor onnan is törölni kell a megfelelő sort.
 
 ## Megjegyzés
 
